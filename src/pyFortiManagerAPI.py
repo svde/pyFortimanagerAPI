@@ -911,7 +911,7 @@ class FortiManager:
         """
         Get adom header policies
         """
-        url = f"pm/config/adom/{self.adom}/obj/global/header/policy"
+        url = f"pm/config/adom/{self.adom}/global/header/policy"
         if policyid:
             url = url + str(policyid)
         payload = {"method": "get", "params": [{"url": url}], "session": self.sessionid}
