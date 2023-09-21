@@ -907,11 +907,11 @@ class FortiManager:
         )
         return get_global_header_policies.json()["result"]
 
-    def get_firewall_header_policies(self, policyid=False):
+    def get_firewall_header_policies(self, policy_package_name="default", policyid=False):
         """
         Get adom header policies
         """
-        url = f"pm/config/adom/{self.adom}/global/header/policy"
+        url = f"pm/config/adom/{self.adom}/pkg/{policy_package_name}/global/header/policy"
         if policyid:
             url = url + str(policyid)
         payload = {"method": "get", "params": [{"url": url}], "session": self.sessionid}
