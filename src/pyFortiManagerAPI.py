@@ -1004,13 +1004,12 @@ class FortiManager:
     # Services
     def get_services(self):
         """
-                Get interface details from the devices.
-                :param device: Specify name of the device.
-                """
+        Get services for adom.
+        """
         session = self.login()
         payload = \
             {"method": "get",
-             "params": [{"url": f"pm/config/adom/{self.adom}/obj/firewall/service/custom/Custom_Service_1"}]}
+             "params": [{"url": f"pm/config/adom/{self.adom}/obj/firewall/service/custom"}]}
 
         payload.update(session=self.sessionid)
         services = session.post(url=self.base_url, json=payload, verify=self.verify)
@@ -1018,8 +1017,8 @@ class FortiManager:
 
     def get_service(self, name):
         """
-        Get interface details from the devices.
-        :param name: Specify name of the device.
+        Get detail of a service.
+        :param name: Specify name of the service.
         """
         session = self.login()
         payload = \
