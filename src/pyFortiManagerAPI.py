@@ -937,7 +937,7 @@ class FortiManager:
         """
         Get adom footer policies
         """
-        url = f"pm/config/adom/{self.adom}/obj/global/footer/policy"
+        url = f"pm/config/adom/{self.adom}/pkg/{policy_package_name}/global/footer/policy"
         if policyid:
             url = url + str(policyid)
         session = self.login()
